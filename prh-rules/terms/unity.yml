@@ -1,0 +1,273 @@
+# Rules for Unity
+# 原則として、Unity User Manualの用語集 https://docs.unity3d.com/ja/2020.3/Manual/Glossary.html の訳語に準じます
+# ただし、Unity User Manual本文に英単語のままで表記されている「Projectウィンドウ」や、コード中にも出現する「Scene」などは英単語を採択しています
+
+meta:
+  reviewer:
+    - nowsprinting
+  rules:   https://github.com/prh/rules
+
+version: 1
+rules:
+  - expected: Unity
+  - expected: エディター
+    patterns:
+      - /エディタ(?!ー)/
+      - /[Ee]ditor/
+    specs:
+      - from: エディタ
+        to:   エディター
+      - from: エディター
+        to:   エディター
+  - expected: Scene
+    pattern:  シーン
+  - expected: Prefab
+    pattern:  /プレ(ハ|ファ)ブ/
+  - expected: Asset # 一般的な言葉としてカタカナ表記を使用するケースもありそうなのでキャピタライズのみ
+  - expected: GameObject
+    patterns:
+      - /[Gg]ame ?[Oo]bjects?/
+      - /ゲーム・?オブジェクト/
+  - expected: ScriptableObject
+    patterns:
+      - /[Ss]criptable ?[Oo]bjects?/
+      - /スクリプタブル・?オブジェクト/
+  - expected: ヒエラルキー
+    pattern:
+      - /ヒエラルキ(?!ー)/
+    specs:
+      - from: ヒエラルキ
+        to:   ヒエラルキー
+  - expected: Sceneビュー
+    pattern:  /([Ss]cene|シーン)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+    specs:
+      - from: シーン・ビュー
+        to:   Sceneビュー
+      - from: シーンウィンドー
+        to:   Sceneビュー
+      - from: シーンビュー
+        to:   Sceneビュー
+      - from: sceneview
+        to:   Sceneビュー
+      - from: scenewindow
+        to:   Sceneビュー
+  - expected: Gameビュー
+    pattern:  /([Gg]ame|ゲーム)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+  - expected: Hierarchyウィンドウ
+    pattern:  /([Ss]cene|シーン)?[ ・]?([Hh]ierarchy|ヒエラルキー?)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+    specs:
+      - from: scene hierarchy view
+        to:   Hierarchyウィンドウ
+      - from: シーン・ヒエラルキ・ウインドー
+        to:   Hierarchyウィンドウ
+      - from: ヒエラルキウィンドゥ
+        to:   Hierarchyウィンドウ
+  - expected: Inspectorウィンドウ
+    pattern:  /([Ii]nspector|インスペクター?)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+  - expected: Projectウィンドウ
+    pattern:  /([Pp]roject|プロジェクト)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+  - expected: Consoleウィンドウ
+    pattern:  /([Cc]onsole|コンソール)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+  - expected: Test Runnerウィンドウ
+    pattern:  /([Tt]est ?[Rr]unner|テスト・?ランナー?)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+  - expected: Package Managerウィンドウ
+    pattern:  /([Pp]ackage ?[Mm]anager|パッケージ・?マネージャー?)[ ・]?([Vv]iew|[Ww]indow|ビュー|ウ[イィ]ンド[ウゥー])/
+  - expected: UPMパッケージ
+    pattern:  /[Uu][Pp][Mm][ ・]?([Pp]ackages?|パッケージ)/
+    specs:
+      - from: UPM package
+        to:   UPMパッケージ
+      - from: UPMPackages
+        to:   UPMパッケージ
+      - from: upm パッケージ
+        to:   UPMパッケージ
+  - expected: 埋め込みパッケージ
+    patterns:
+      - /埋め?込み?パッケージ/
+      - /組み?込み?パッケージ/
+      - /[Ee]mbedded ?[Pp]ackages?/
+    prh: 「埋め込み」と訳された。See https://docs.unity3d.com/ja/2022.1/Manual/CustomPackages.html
+  - expected: ローカルパッケージ
+    patterns:
+      - /ローカル・?パッケージ/
+      - /[Ll]ocal ?[Pp]ackages?/
+  - expected: ネイティブプラグイン
+    patterns:
+      - /ネイティブ・?(プラグイン|ライブラリー?)/
+      - /[Nn]ative ?([Pp]lugins?|[Ll]ibrary|[Ll]ibraries)/
+    specs:
+      - from: ネイティブ・プラグイン
+        to:   ネイティブプラグイン
+      - from: ネイティブライブラリ
+        to:   ネイティブプラグイン
+      - from: ネイティブライブラリー
+        to:   ネイティブプラグイン
+      - from: Native Plugin
+        to:   ネイティブプラグイン
+      - from: native plugin
+        to:   ネイティブプラグイン
+      - from: native plugins
+        to:   ネイティブプラグイン
+      - from: Native Library
+        to:   ネイティブプラグイン
+      - from: native library
+        to:   ネイティブプラグイン
+      - from: native libraries
+        to:   ネイティブプラグイン
+  - expected: OpenUPM
+    pattern:  /[Oo]pen ?[Uu][Pp][Mm](?!.com)/
+    specs:
+      - from: openupm
+        to:   OpenUPM
+      - from: open upm
+        to:   OpenUPM
+      - from: openupm.com
+        to:   openupm.com
+  - expected: UniTask
+  - expected: UniRx
+  - expected: MonoBehaviour
+    pattern:  /[Mm]ono ?[Bb]ehaviou?r/
+  - expected: uGUI
+  - expected: Edit Modeテスト
+    patterns:
+      - /エディット・?モード・?テスト/
+      - /編集モード・?テスト/
+      - /エディター?・?テスト/
+      - /[Ee]dit ?[Mm]ode[ ・]?([Tt]ests?|テスト)/
+      - /[Ee]ditor[ ・]?([Tt]ests?|テスト)/
+    prh: Unity User Manualの用語集に準ずると「編集モードテスト」になるが、一般的な「Edit Modeテスト」に統一する
+  - expected: Play Modeテスト
+    patterns:
+      - /プレイ・?モード・?テスト/
+      - /再生モード・?テスト/
+      - /[Pp]lay ?[Mm]ode[ ・]?([Tt]ests?|テスト)/
+    prh: Unity User Manualの用語集に準ずると「再生モードテスト」になるが、一般的な「Play Modeテスト」に統一する
+  - expected: 編集モード
+    patterns:
+      - /エディット・?モード・?(?!テスト)/
+      - /[Ee]dit ?[Mm]ode[ ・]?(?![Tt]ests?|テスト)/
+    prh: 「テスト」が付かない場合はUnity User Manualの用語集に準じて「編集モード」とします
+    specs:
+      - from: エディットモード
+        to:   編集モード
+      - from: エディット・モード
+        to:   編集モード
+      - from: Edit Mode
+        to:   編集モード
+      - from: EditMode
+        to:   編集モード
+      - from: Edit Modeテスト
+        to:   Edit Modeテスト
+  - expected: 再生モード
+    patterns:
+      - /プレイ・?モード・?(?!テスト)/
+      - /[Pp]lay ?[Mm]ode[ ・]?(?![Tt]ests?|テスト)/
+    prh: 「テスト」が付かない場合はUnity User Manualの用語集に準じて「再生モード」とします
+    specs:
+      - from: プレイモード
+        to:   再生モード
+      - from: プレイ・モード
+        to:   再生モード
+      - from: Play Mode
+        to:   再生モード
+      - from: PlayMode
+        to:   再生モード
+      - from: Play Modeテスト
+        to:   Play Modeテスト
+  - expected: プレイヤー
+    patterns:
+      - /プレ[イー]ヤ(?!ー)/
+      - /[Pp]layer/
+    prh: 「プレイヤー」単体で使うのは「ゲームをプレイする人」の意。スタンドアロンプラットフォーム（macOS, Windows, iOS, Androidなど）向けのプレイヤーは「スタンドアロンプレイヤー」を使うこと。「プレイヤー設定」「プレイヤー実行」はセーフ # TODO: ルール化したい
+  - expected: スタンドアロンプレイヤー
+    patterns:
+      - /スタン(ドア|ダ)ロー?ン・?プレ[イー]ヤー?/
+      - /[Ss]tandalone ?[Pp]layer/
+    specs:
+      - from: スタンドアロン・プレイヤー
+        to:   スタンドアロンプレイヤー
+      - from: スタンドアローンプレイヤー
+        to:   スタンドアロンプレイヤー
+      - from: スタンダローンプレイヤー
+        to:   スタンドアロンプレイヤー
+      - from: スタンダロンプレイヤー
+        to:   スタンドアロンプレイヤー
+      - from: スタンダロンプレイヤ
+        to:   スタンドアロンプレイヤー
+      - from: スタンダロンプレーヤー
+        to:   スタンドアロンプレイヤー
+  - expected: カテゴリー
+    patterns:
+      - /カテゴリ(?!ー)/
+      - /[Cc]ategory(?!(属性|アトリビュート|Attribute))/
+    specs:
+      - from: カテゴリ
+        to:   カテゴリー
+      - from: Category
+        to:   カテゴリー
+      - from: Category属性
+        to:   Category属性
+      - from: Categoryアトリビュート
+        to:   Categoryアトリビュート
+      - from: CategoryAttribute
+        to:   CategoryAttribute
+  - expected: UI要素
+    patterns:
+      - UIエレメント
+      - UIコンポーネント
+    prh: Unityマニュアル日本語訳に従う。表記ゆれはあるが。
+  - expected: ビジュアルコンポーネント
+    prh: Text, Image, Raw Image, Mask, Effect
+  - expected: インタラクションコンポーネント
+    prh: Selectable, Button, Toggle, Toggle Group, Slider, Scrollbar, Dropdown, Input Field, Scroll Rect (Scroll View)
+  - expected: 3D要素
+    patterns:
+      - /3D physics elements?/
+      - 3Dエレメント
+      - 3Dコンポーネント
+      - 3Dオブジェクト
+    prh: Unityマニュアル日本語訳に従う。表記ゆれはあるが。
+  - expected: 2D要素
+    patterns:
+      - /2D physics elements?/
+      - 2Dエレメント
+      - 2Dコンポーネント
+      - 2Dオブジェクト
+    prh: Unityマニュアル日本語訳に従う。表記ゆれはあるが。
+  - expected: バッチモード
+    patterns:
+      - /[Bb]atch ?[Mm]ode/
+  - expected: IL2CPP
+  - expected: Mono
+  - expected: iOS
+  - expected: Xcode
+  - expected: App Store
+    pattern:  /[Aa]pp ?[Ss]tore/
+  - expected: Android
+  - expected: Gradle
+  - expected: Google Play
+    pattern:  /[Gg]oogle ?[Pp]lay/
+  - expected: macOS
+    patterns:
+      - /[Mm]ac ?(OS|os)?X?/
+      - /[Mm]ac/
+      - /[Oo][Ss][Xx]/
+    specs:
+      - from: Mac OSX
+        to:   macOS
+      - from: MacOSX
+        to:   macOS
+      - from: OSX
+        to:   macOS
+  - expected: Windows
+  - expected: WebGL
+  - expected: Linux
+  - expected: Automated QA
+    pattern: /[Aa]utomated ?[Qq][Aa]/
+  - expected: Recorded Playback
+    patterns:
+      - /[Rr]ecord [Pp]layback/
+      - /[Rr]ecording [Pp]layback/
+  - expected: Airtest
+  - expected: Poco
+  - expected: NetEase

@@ -1,0 +1,18 @@
+{
+  "plugins": {
+    "latex2e": true
+  },
+  "filters": {},
+  "rules": {
+    "no-todo": true,
+    "preset-ja-technical-writing": true,
+    "preset-japanese": true,
+    "preset-jtf-style": true,
+    "preset-ja-engineering-paper": false,
+    "prh" : {
+      "rulePaths" :["./prh-rules/media/WEB+DB_PRESS.yml",
+                    "./prh-rules/media/ikagoya.yml"
+                   ]
+    }
+  }
+}

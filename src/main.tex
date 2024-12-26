@@ -1,0 +1,99 @@
+\RequirePackage{plautopatch}
+\documentclass[
+uplatex,dvipdfmx,               % Use upLaTeX and dvipdfmx
+paper=a4paper,                  % A4
+fontsize=11pt,                  % Font
+book,                           % Book
+jlreq_notes                     % Warning
+]{jlreq}
+
+\usepackage{graphicx,color}     % 画像と色
+\usepackage{siunitx}            % 単位
+\usepackage{dirtree}            % Dirctory treeを描く
+\usepackage{amsmath,amssymb}    % 数式
+\usepackage{empheq}             % 連立方程式
+
+% Hyperlink
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[
+unicode=true,
+colorlinks=true,
+linkcolor=purple,
+pdfusetitle,   % \title や \author に指定した内容をPDFメタデータに使う
+bookmarks=true,
+bookmarksnumbered=true,
+% bookmarksopen=true,
+]{hyperref}
+\usepackage{pxjahyper}          % ハイパーリンクの日本語化
+
+% backmatterでは\chapterの代わりにこれを使う。
+% hyperrefのためのworkaround
+\newcommand{\Chapter}[1]{
+  \phantomsection
+  \addcontentsline{toc}{chapter}{#1}
+  \chapter*{#1}
+}
+
+% jlreqの設定
+\usepackage{jlreq-complements}
+\jlreqsetup{
+  thebibliography_heading={
+    \Chapter{\refname}
+  },
+  theindex_heading={
+    \Chapter{\indexname}
+  },
+}
+
+% fontの設定
+\usepackage[deluxe,jis2004]{otf}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[prefernoncjk]{pxcjkcat} % なるべく「半角」扱いで。
+\cjkcategory{sym18,grek}{cjk} % sym18 (U+25A0 - U+25FF Geometric Shapes)とgrekを和文文字あつかい
+
+% 索引
+\usepackage{makeidx}
+\makeindex
+
+% graphic
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings,arrows}
+
+\graphicspath{{./fig/}}
+% utility
+\newcommand{\fg}[4]{\begin{figure}[htbp]
+     \centering
+     \includegraphics[width = #1]{#2}
+     \caption{#3}\label{#4}
+ \end{figure}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand*{\Laplace}{\!\mathop{}\mathbin{\bigtriangleup}}    % ただの三角形
+\newcommand*{\DAlambert}{\!\mathop{}\mathbin{\Box}}    % ただの四角形
+
+\title{タイトル}
+\author{なまえ}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\frontmatter
+\setcounter{tocdepth}{2}
+\tableofcontents
+\input{00-preface}
+
+\mainmatter
+\input{01-overview}
+
+\appendix
+\input{81-appendix}
+
+\backmatter
+\input{99-postface}
+\printindex
+
+\end{document}
