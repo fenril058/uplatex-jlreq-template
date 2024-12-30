@@ -7,7 +7,8 @@ book,                           % Book
 jlreq_notes                     % Warning
 ]{jlreq}
 
-\usepackage{graphicx,color}     % 画像と色
+\usepackage{subfiles}           % ファイル分割
+\usepackage{graphicx}           % 画像
 \usepackage{siunitx}            % 単位
 \usepackage{dirtree}            % Dirctory treeを描く
 \usepackage{amsmath,amssymb}    % 数式
@@ -84,16 +85,16 @@ bookmarksnumbered=true,
 \frontmatter
 \setcounter{tocdepth}{2}
 \tableofcontents
-\input{00-preface}
+\subfile{00-preface}
 
 \mainmatter
-\input{01-overview}
+\subfile{01-overview}
 
 \appendix
-\input{81-appendix}
+\subfile{81-appendix}
 
 \backmatter
-\input{99-postface}
+\subfile{99-postface}
 \printindex
 
 \end{document}
