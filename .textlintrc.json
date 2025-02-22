@@ -2,17 +2,33 @@
   "plugins": {
     "latex2e": true
   },
-  "filters": {},
+  "filters": {
+    "comments": {
+      "enablingComment": "textlint-enable",
+      "disablingComment": "textlint-disable"
+    }
+  },
   "rules": {
     "no-todo": true,
-    "preset-ja-technical-writing": true,
-    "preset-japanese": true,
+    "preset-ja-technical-writing": {
+      "sentence-length": false,
+      "max-comma": false,
+      "max-ten": false,
+    },
+    "preset-japanese": {
+      "sentence-length": false,
+      "max-ten": false
+    },
     "preset-jtf-style": true,
-    "preset-ja-engineering-paper": false,
+    "preset-ja-engineering-paper": {
+      "unify-kuten-and-touten": false,
+      "ja-hiragana-fukushi": false
+    },
     "prh" : {
-      "rulePaths" :["./prh-rules/media/WEB+DB_PRESS.yml",
-                    "./prh-rules/media/ikagoya.yml"
-                   ]
+      "rulePaths" :[
+        "./prh-rules/media/WEB+DB_PRESS.yml",
+        "./prh-rules/media/ikagoya.yml"
+      ]
     }
   }
 }
