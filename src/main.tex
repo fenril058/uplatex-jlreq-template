@@ -26,23 +26,24 @@ bookmarksnumbered=true,
 % bookmarksopen=true,
 ]{hyperref}
 \usepackage{pxjahyper}          % ハイパーリンクの日本語化
+\urlstyle{same}
 
 % backmatterでは\chapterの代わりにこれを使う。
 % hyperrefのためのworkaround
-\newcommand{\Chapter}[1]{
-  \phantomsection
-  \addcontentsline{toc}{chapter}{#1}
-  \chapter*{#1}
-}
+% \newcommand{\Chapter}[1]{
+%   \phantomsection
+%   \addcontentsline{toc}{chapter}{#1}
+%   \chapter*{#1}
+% }
 
 % jlreqの設定
 \usepackage{jlreq-complements}
 \jlreqsetup{
   thebibliography_heading={
-    \Chapter{\refname}
+    \chapter{\refname}
   },
   theindex_heading={
-    \Chapter{\indexname}
+    \chapter{\indexname}
   },
 }
 

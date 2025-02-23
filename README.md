@@ -51,4 +51,19 @@ uplatex-jlreq-template/
 
 もし`hyperref`パッケージを使うのであれば、
 `\backmatter`以降では`\chapter`の代わりに`\Chapter`をつかってください。
+```latex
+\newcommand{\Chapter}[1]{
+  \phantomsection
+  \addcontentsline{toc}{chapter}{#1}
+  \chapter*{#1}
+}
+```
 これは[\backmatter以降はhyperref packageによる章の参照が効かない · Issue #122 · abenori/jlreq](https://github.com/abenori/jlreq/issues/122)のワークアラウンドです。
+
+ただし、試験的に
+[3056c68](https://github.com/abenori/jlreq/commit/3056c681352f59f761624793c59bc82b6e0a0429)
+で修正を入れていただいており、
+このversionのjlreqであればこのワークアラウンドは必要ありません。
+
+本リポジトリではこの修正をいれたversionを使うことを想定し、
+このワークアラウンドは`main.tex`からコメントアウトしました。
